@@ -1,0 +1,999 @@
+-------------------------------------------------
+Name:
+Currency format with comma
+
+Expression:
+^(\d{1,3})(,\d{1,3})*(\.\d{1,})?$
+
+Input:
+123
+1,111
+11,234
+234,678
+1,111,444
+6666,7777,888
+777777777777777777.77
+1.2
+2.55
+-------------------------------------------------
+Name: Similar Surnames
+
+Expression:
+Joh?n(athan)?
+
+Input:
+Jonathan
+John
+Jon
+Johnathan
+
+-------------------------------------------------
+
+Name: Static File URL
+
+Expression:
+http://.+$(?<!\.gif|\.png|\.css|\.js)
+
+Input:
+http://ads/fff.jpg
+http://FDD/
+http://a.gif
+http://ASD/jfss/ghfs24.png 
+http://adf/test.jss 
+
+-------------------------------------------------
+
+Name: Remove Empty CSV Fields
+
+Expression:
+\s*,\s*,
+
+Input:
+,,   ,, ,,  ,,
+,, ,   ,,
+,  ,   ,
+,,   ,,   ,,,        ,Heap Usage,,%JVM Utilization,,,,,,,,, ,
+Java Solution-
+test = (test.replaceAll("\\s*,\\s*,", ",")).replaceAll("\\s*,\\s*,", "").replaceAll(",\\s*$", "");
+-------------------------------------------------
+Name: Multiple Success Code - ICICI Dynatrace
+
+Expression:
+^(?!.*(<RespCode>success</RespCode>|>000<actCode>)).*$
+
+Input:
+abc<RespCode>succe</RespCode>aa
+abc<RespCode>success</RespCode>aa
+aaa>000<actCode>
+aaa>00<actCode>
+rrrrrrrrr
+8888888 aaa>00<actCode>  
+-------------------------------------------------
+
+Name: Measure Tag Parse
+
+Expression:
+(<measure.*?>)
+Input:
+
+-------------------------------------------------
+
+Name: URLs Ending with heartbeat
+
+Expression:
+/.*+$(?<!heartbeat)
+
+Input:
+/WLS62/android/heartbeat
+/a/v/b
+/WLS62/iphone/heartbeat
+-------------------------------------------------
+Name: Words not beginning with qu but containing qu
+
+Expression:
+\b(?!qu)[a-z]*\b
+
+Input:
+ select words not beginning with qu but containing qu at other positions
+ (?!\squ\s).+
+ quality
+ quick
+ quit
+ qeue
+ aquadir
+ aquadag
+ aqueous
+ qu
+ the aquamarine blue
+ sequence
+ sequ
+ quench
+ siquel
+ quality
+ qorum
+ quaquA    
+-------------------------------------------------
+Name: Test Expression 01
+
+Expression:
+(?<!^\w+:)
+
+Input:
+
+-------------------------------------------------
+Name: Identify Start Position
+
+Expression:
+((?!Start Position).)*\s
+
+Input:
+Identify Start Position
+gggh
+
+-------------------------------------------------
+Name: Nth Part of Sequence Delimited Text
+
+Expression:
+(?>(?:[a-zA-Z]*%%){3})[a-z]*
+
+Input:
+jgFhh%%khfhg%%kfdbjhj%%x%%mumbai%%kgjbnh%%
+
+-------------------------------------------------
+Name: Success Code Not 00 or 34 - Pockets
+
+Expression:
+t=((?!00,|34,).*?),
+
+Input:
+t=00,
+t=000,
+t=34,
+t=340,
+-------------------------------------------------
+Name: Containing alpha But Not beta
+
+Expression:
+((?!beta).)*alpha((?!beta).)*
+
+Input:
+alpha
+alpha alpha
+beta beta alpha
+beta beta beta
+beeta
+-------------------------------------------------
+Name: Test Expression 02
+
+Expression:
+(?=[a-z]{1,}).*
+
+Input:
+DVD
+ddsdD
+dthjg
+Y
+jghhhhhhhh
+-------------------------------------------------
+Name: Words Not Containing qu
+
+Expression:
+\s((?!qu).)*\s
+
+Input:
+sequence
+tequila
+qatar
+qilin
+hello
+qr code
+qed
+qing
+xinqiyang
+
+(?!qu.*?\b).
+((?!qu)|.)*
+-------------------------------------------------
+Name: Test Expression 03
+
+Expression:
+.*(?<=[^/])
+
+Input:
+/root/
+-------------------------------------------------
+Name: Test Expression 04
+
+Expression:
+(?<=h[a-z]{1,9})aven
+
+Input:
+raven
+maven
+heaven
+t aven
+-------------------------------------------------
+Name: Test Expression 05
+
+Expression:
+^(?<=[a-z]+)aven
+
+Input:
+raven
+maven
+heaven
+t aven
+-------------------------------------------------
+Name: Words Ending with -ium
+
+Expression:
+[a-z]*(?=ium)
+
+Input:
+titanium
+podium
+strontium
+ beryllium
+-------------------------------------------------
+Name: Words Ending with -istics
+
+Expression:
+(?=[a-z]*istics)(.*)(\b|$)
+
+Input:
+characteristics
+linguistics
+character
+statistics
+physicist
+majestics
+cosmetics
+polycystics
+istics
+-------------------------------------------------
+
+Name: Test Expression 06
+
+Expression:
+christ(?=[^ ]*)r\b
+
+Input:
+Look aheads
+(?=)
+(?!)
+Look behind
+(?<=)
+(?<!)
+(?>) atomic grouping
+(?:) non capturing
+christmas
+christ 
+christopher
+select only christ 
+christ(?=\b)|christ(?=o)
+select all words beginning with christ ending with r
+christr 
+christopher
+christor 
+
+-------------------------------------------------
+
+Name: Names Starting with christ and ending with r
+
+Expression:
+christ(?=[^ ]*)r\b
+
+Input:
+christopher
+-------------------------------------------------
+Name: Ending with ufc
+
+Expression:
+.*?/.*(?<=ufc)$
+
+Input:
+http://a.com/something/ufc
+-------------------------------------------------
+Name: URL parsing #words
+
+Expression:
+http://(.*?)(?:.(?!#/))+$
+
+Input:
+http://www.abc.com/new/app/page#3/register#/bmjgfd64hfshncx
+-------------------------------------------------
+Name: HTTP URL
+
+Expression:
+http://(.*?)(?:.(?!#/))+$
+
+Input:
+
+-------------------------------------------------
+Name: Select Quoted Text
+
+Expression:
+"([^"]*)"
+
+Input:
+<aaaa prop="test223.8678" query="" pro="34.64_~@)(" />
+-------------------------------------------------
+
+Name: Simple Email Validation
+
+Expression:
+([a-zA-Z0-9._]){2,}@([a-zA-Z0-9]){2,}(\.){1}(com|co\.in|in|de){1}
+
+Input:
+rjs.Swarnkar@gmail.com
+rjs_df@ab.com
+0u@xx.co.in somewhere@domain.de
+____@gmail.com
+-------------------------------------------------
+Name: Dynatrace Community Regex
+
+Expression:
+^/[^/]*/(?i)[^/]*(?-i)/
+
+Input:
+/delta/en-us/others/blah
+/delta/en-US/others/blah
+/delta/EN-us/others/blah
+/delta/EN-US/others/blah
+
+/delta/pt-pt/others/blah
+/delta/pt-PT/others/blah
+/delta/PT-pt/others/blah
+/delta/PT-PT/others/blah
+
+-------------------------------------------------
+
+Name: Toggle Case Sensitivity
+
+Expression:
+<B>(?i)text(?-i)</B>
+
+Input:
+<B>text</B>
+<B>texT</B> 
+<B>TEXT</B>
+<B>text</b>
+-------------------------------------------------
+Name: HTTP Relative URLs Parts
+
+Expression:
+(^/[^/]*(?:/[^/]*)?)
+
+Input:
+/firstpat/secondpart/third/foutfgfgh
+/firstpat/second
+/firstpat/sec
+/firstpat/
+/firstpat
+/f
+/
+//t
+/^/^
+-------------------------------------------------
+ 
+Name: Test Expression 07
+
+Expression:
+from(?<=looking)
+
+Input:
+She was looking from looking from window
+fromlooking
+lookingfrom
+-------------------------------------------------
+Name: Test Expression 08
+
+Expression:
+((?!10).)*
+
+Input:
+45446710
+767567554
+-------------------------------------------------
+
+Name: Test Expression 09
+
+Expression:
+(?=bound)\s+
+
+Input:
+bound text
+-------------------------------------------------
+
+Name: Test Expression 10
+
+Expression:
+\A(?=\w{6,10}\z) (?=[^a-z]*[a-z])
+
+Input:
+TESTINg
+-------------------------------------------------
+
+Name: Credit card nos with not having 0s
+
+Expression:
+(?=(000|00|0))[0-9]{12}
+
+Input:
+all 12 digit credit card nos with not having 0s in 1+2 or 1+2+3 positions
+in beginning or ending
+
+(?<!000|00|0)[0-9]{6,12} (?!000|00|0)
+
+000456789000
+100456789111
+100456789119
+123456789111
+001111111111
+011111112220
+-------------------------------------------------
+
+Name: Test Expression 11
+
+Expression:
+(?=Jeffrey)Jeff|(?!Jeffrey)Jeff
+
+Input:
+Thomas Jefferson
+Jeff
+JeffreyJeffrey
+-------------------------------------------------
+
+Name: Tag Not 0000
+
+Expression:
+<tag>(?!0000)[0-9]{1,4}?</tag>
+
+Input:
+<tag>0000</tag>
+<tag>0001</tag>
+<tag>1000</tag>
+<tag>00</tag>
+<tag>000</tag>
+<tag></tag>
+<tag>8</tag>
+<tag>134555</tag>
+<tag>000000009</tag>
+-------------------------------------------------
+
+Name: Parse Names from Email Fields
+
+Expression:
+
+Input:
+Nilesh Hase<Nilesh@qk.com>/ITG/HYD, 
+-------------------------------------------------
+Name: Parsing HTML Tags by back reference
+
+Expression:
+<([^>]*?)>(.*?)</\1>
+
+Input:
+<html>Some Text</html>
+<p> para </p>
+On and on
+-------------------------------------------------
+
+Name: On and On
+
+Expression:
+(on and on ?)+(and on)
+
+Input:
+and the great pink fairy fled on and on and on.
+then my heart goes on and on and on
+Alterations
+-------------------------------------------------
+
+Name: Alteration Test
+
+Expression:
+fat|cat|belly|your
+
+Input:
+the dragging belly indicates that your cat is too fat
+-------------------------------------------------
+Name: Regex Engine Types
+
+Expression:
+nfa|nfa not(?#if nfa matches thens its nfa or POSIX nfa)
+
+Input:
+nfa not
+-------------------------------------------------
+
+Name: Named capture
+
+Expression:
+(?<citycode>\d\d\d)
+
+Input:
+022
+-------------------------------------------------
+
+Name: Else if in regex
+
+Expression:
+<a +[^>]*>(?(1))
+
+Input:
+<a href="http://google.com"> 
+-------------------------------------------------
+Name: Comment Inside Expression
+
+Expression:
+...(?#This is just a comment)
+Input:
+rrr
+hhhhkhbfhgjvbnh787
+hjh.
+djfjgfhbfghjuhgh
+#This is just a comment
+-------------------------------------------------
+
+Name: M,N Quantifier
+
+Expression:
+(.{1,12})
+Input:
+ttttttttttttttgttghcghchgghcfhv
+-------------------------------------------------
+
+Name: Caret and Dollar
+
+Expression:
+(?:end$|^start)
+
+Input:
+start 
+whatever may pass
+end
+
+-------------------------------------------------
+Name: Simple HTML URL
+
+Expression:
+http://[-a-z]*/
+
+Input:
+
+-------------------------------------------------
+Name: USA Currency 
+
+Expression:
+\$[0-9]*(\.[0-9][0-9])?
+
+Input:
+$.12
+$1000
+$500
+475.00
+$12.64
+-------------------------------------------------
+
+Name: Int and Double Numbers
+
+Expression:
+(?! )(\d+(?:\.\d+)?)
+
+Input:
+name: 34.56
+name:56
+name:0.007
+name:    6.  078
+
+(?#you see 6.  078 should not match. Use looks arounds)
+-------------------------------------------------
+Name: Catastrophic Regex 01
+
+Expression:
+X(.+)+X
+
+Input:
+==XX=============
+(?#just type = and see how it hangs this. this is NFA Or POSIX NFA)
+-------------------------------------------------
+
+Name: Greediness Of Quantifiers
+
+Expression:
+\w+s
+
+Input:
+regular expression is difficult
+regular expressions are cool 
+-------------------------------------------------
+
+Name: Greediness Regex 01 
+
+Expression:
+subject:(.*)(.*)\2\1
+
+Input:
+subject:New Report
+-------------------------------------------------
+Name: Test Expression 12
+
+Expression:
+^.*([0-9]+)\1
+
+Input:
+copyright 20033.
+copyright 2003
+-------------------------------------------------
+
+Name: Possessive Quantifier
+
+Expression:
+(?>\w+)(?#possessive quantifiers are not supported like *+ ++ ?+)
+
+Input:
+test test
+-------------------------------------------------
+
+Name: Test Expression 13
+
+Expression:
+(?<=\w):\s(\d+)\1
+
+Input:
+amount: 2323
+anytext: 45
+678: 5694
+-------------------------------------------------
+Name: ActCode Not 000
+
+Expression:
+00[1-9]|0[1-9][0-9]|[1-9][0-9][0-9]
+
+Input:
+000
+111
+123
+999
+011
+099
+900
+800
+808
+001
+009
+-------------------------------------------------
+Name: Any text except sequence
+
+Expression:
+\{\[--((?!--\]\}).)*--\]\}
+
+Input:
+{[--Error: Error in .hif file Not Found at abc.java:233--]}
+{[--Info: Connection Successful at Conn.dbf:78--]}
+{[--valid--]}
+{[--यह टेक्स्ट है !!--]}--]}
+
+-------------------------------------------------
+
+Name: First Line in Exception Return Value
+
+Expression:
+\[java\..*Exception:[^)]+
+
+Input:
+ICICI Dynatrace Exception
+[java.IOException:1000 at hello.java(test)
+------------------------------------------------- 
+
+Name: Non-Catastrophic P in 12th CSV Column
+
+Expression:
+^(?:([^,]*,){11})(P.*)
+
+Input:
+1,2,3,4,5,6,7,8,9,10,11,12,13,14
+-------------------------------------------------
+
+Name: Valid HTML bold tags
+
+Expression:
+<b>((?!</?b>).)*</b>
+
+Input:
+<b>valid</b>
+<b>invalid<b>
+test
+</b></b>
+-------------------------------------------------
+Name: Catastrophic P in 12th CSV Column
+
+Expression:
+^(.*?){11}P
+
+Input:
+1, 2, 3,Dangerous
+-------------------------------------------------
+Name: Validate IPv4
+
+Expression:
+
+Input:
+0.0.0.0
+0.0.9.1
+444.567.87.90
+1.2.3.4.5.6
+192.168.1.0
+2.1.1.1
+211.254.56.22
+200.100.1.0
+a.b.c.e
+172.16.23.8
+245.255.256.7
+254.254.254.255
+-------------------------------------------------
+
+Name: Test Expression 14
+
+Expression:
+[^/]*\.[a-z]{1,}$
+
+Input:
+usr/bin/local/
+
+/usr/tmp.txt
+-------------------------------------------------
+
+Name: JSON Parsing
+
+Expression:
+
+Input:
+Book
+{
+	Field1 : "value1"  ;
+	ArrayField : 
+    ValArray [1, 2, 3, "apple"];
+}
+-------------------------------------------------
+
+Name: HTML Anchor
+
+Expression:
+<a\s+([^>]+)>(.*?)</a>
+
+Input:
+<a href="http://google.com">Visit Google </a>
+-------------------------------------------------
+Name: Quoted Text
+
+Expression:
+"(\\.|[^\\"])*"
+
+Input:
+"hello"
+"I said, \"go back\""
+"\\root\\txt.a\\"
+-------------------------------------------------
+Name: Microsoft Quoted CSV
+
+Expression:
+[^",]+|"(?:[^"]|"")*"
+
+Input:
+test, password@123, , "rupees","sss,fff"
+""hello"",""hello" "hello"",
+-------------------------------------------------
+Name: Regular Expression Tips
+
+Expression:
+(?#Regular Expression Tips)
+
+Input:
+A. Always Create Regex that matches quickly and fails quickly. 
+1. DFA processes text exactly ones and stops. Hence it's fast to report success and failure to match.
+2. An NFA regex engine tries to find atleast one match. If match is found it simply stops. Hence iys fast to report the success. But is slow when it cannot find match.
+3. POSIX NFA must try ALL possibilities in its regex BEFORE it conclueds the match. Hence it is always slow - failure as well as success.
+
+B. It is good idea to enlist your assumptions about data. Hence Don't make too optimistic assumptions about data.
+
+-------------------------------------------------
+Name: Matching braces
+
+Expression:
+
+Input:
+Write Regex to parse matching curly braces or parentheses
+
+void main( string Arg)
+{
+
+int t = foo ( intval(var) * funto + 3);
+
+}
+-------------------------------------------------
+Name: Windows Path
+
+Expression:
+.*\\
+
+Input:
+C:\Program Files\Dynatrace\server.conf
+
+------------------------------------------------- 
+Name: Filter surrounding context
+
+Expression:
+(?<!\w)\d+\.\d+\.\d+\.\d+(?!\w)
+
+
+Input:
+172.16.23.11
+192.156.790.87
+12.5.7.8f
+3445.7756.8766.8888
+y6.8.8.8
+h.8.8.8.8.8.8.8.8.8
+-------------------------------------------------
+Name: Dot inside class
+
+Expression:
+[(.*)](?#dot is not a Metacharacter inside  class)
+
+Input:
+silk.*
+
+-------------------------------------------------
+Name: Word Boundary
+
+Expression:
+\b\d+\.\d+\b
+
+Input:
+(?#word boundaries work well with words not with other expressions)
+
+$1.200
+a.b.c
+1.2.366 6
+1221192.168.10999
+
+you must use appropriate character/sub expression 
+to separate desired match/valid from surrounding context
+-------------------------------------------------
+
+Name: Non greedy non lazy alteration
+
+Expression:
+tour|to|tournament
+
+Input:
+tour to third tournament tournament
+-------------------------------------------------
+
+Name: Match Nothing
+
+Expression:
+(?>.*?)
+
+Input:
+fhghgg it matches nothing bcoz
+first its atomic ie once matched it does not discards state
+-------------------------------------------------
+
+Name: Look ahead demo
+
+Expression:
+\b(?>Th|th)is\b
+
+Input:
+This is nice country.
+this is test 
+this is thistle
+-------------------------------------------------
+Name: Even repeated alphabet
+
+Expression:
+\b(.)\1(?:\1\1)*\b
+
+Input:
+adadad
+aa aaaa aaaaaaaa 
+aaa aaaaahhhh
+
+hhhhkhbfhgjvbnh hhhh
+-------------------------------------------------
+Name: Multiple Success Criteria 2
+
+Expression:
+.*?, RESPCODE=(?!00|34).*?
+
+Input:
+A Return Value "containing" RESPCODE=00 OR RESPCODE=34 indicates successful transaction.
+We are need to create BT to capture all non-successful transactions where RESPCODE is neither 00 nor 34.
+This is called "Failure Matching for Multiple Success Criteria with Containing relation" Regular Expression.
+Select Failure Packets where RESPCODE is not success.
+-------------------------------------------------
+Name: Not Containing Apple or Ball or Cat 
+
+Expression:
+^(?!.*(Apple|Ball|Cat)).*$
+
+Input:
+Apple is red
+Ball is round
+Cat is live
+Cet aple bal
+-------------------------------------------------
+Name: Multiple Success Criteria 3
+
+Expression:
+^(?!.*(<RESPONSE>Success</RESPONSE>|>000</ActCode>)).*$
+
+Input:
+A Return Value "containing" expression '<RESPONSE>Success</RESPONSE>' OR '>000</ActCode>' indicates successful transaction.
+We are need to create BT to capture all non-successful transactions where neither expression is present.
+This is called "Failure Matching for Multiple Success Criteria with Containing relation" Regular Expression.
+Select Failure Packets where it is not success.
+-------------------------------------------------
+Name: Dynatrace Inbuilt Not Regex
+
+Expression:
+(?i).*\.(?:jpg|jpeg|gif|png|ico)
+
+Input:
+
+-------------------------------------------------
+Name: Remove Static Requests
+
+Expression:
+http://.+$(?<!\.jpg)
+
+Input:
+http://asd/asd/sd/d.jpg
+http://asd/asd/sd/d.yyy
+http://asd/asd/sd/d.jp
+http://asd/asd/sd/d.gi
+http://asd/asd/sd/d.cs
+http://asd/asd/sd/d..png
+-------------------------------------------------
+Name: Not containing a, b or c
+
+Expression:
+^(?!.*(not a|not b|not c)).*$
+
+Input:
+
+-------------------------------------------------
+Name: Test Expression 15
+
+Expression:
+^(?!.*(<RESPONSE>Success</RESPONSE>|>000</ActCode>)).*$
+
+Input:
+
+-------------------------------------------------
+Name: Test Expression 16
+
+Expression:
+.*?(?!(<RESPONSE>Success</RESPONSE>|>000</ActCode>)).*?
+
+Input:
+
+-------------------------------------------------
+Name: Test Expression 17
+
+Expression:
+http://.+$(?<!\.jpg)
+
+Input:
+
+-------------------------------------------------
+Name: Test Expression 18
+
+Expression:
+(?i)https?://.+/.+(?!\.jpg|\.jpeg|\.gif|\.png|\.css|\.js|\.ico)$
+
+Input:
+
+-------------------------------------------------
